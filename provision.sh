@@ -1,15 +1,18 @@
 #!/bin/bash
 
-if [[ -z $STAGE3 ]]
-then
-  echo "STAGE3 environment variable must be set to a timestamp."
-  exit 1
-fi
-
 if [[ -z $SCRIPTS ]]
 then
-  SCRIPTS=.
+    SCRIPTS=.
 fi
+
+source $SCRIPTS/scripts/func.sh
+
+if [[ -z $STAGE3 ]]
+then
+    eerror "STAGE3 environment variable must be set to a timestamp."
+    exit 1
+fi
+
 
 chmod +x $SCRIPTS/scripts/*.sh
 
@@ -30,4 +33,4 @@ do
   "$SCRIPTS/scripts/$script.sh"
 done
 
-echo "All done."
+einfo "All done."
