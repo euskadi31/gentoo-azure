@@ -22,12 +22,13 @@ for script in \
   mounts      \
   resolv.conf \
   portage     \
+  layman      \
   timezone    \
   fstab       \
   kernel      \
   grub        \
   network     \
-  vagrant     \
+  user        \
   cleanup
 do
   "$SCRIPTS/scripts/$script.sh"
