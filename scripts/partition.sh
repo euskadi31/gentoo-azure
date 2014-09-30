@@ -2,6 +2,10 @@
 
 source $SCRIPTS/scripts/func.sh
 
+ebegin "Clean sda..."
+dd if=/dev/zero of=/dev/sda bs=512 count=1 conv=notrunc >> $SCRIPTS/build.log
+eend $?
+
 ebegin "Create partition..."
 sgdisk \
   -n 1:0:+128M -t 1:8300 -c 1:"linux-boot" \
