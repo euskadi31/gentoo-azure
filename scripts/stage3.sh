@@ -5,15 +5,19 @@ source $SCRIPTS/scripts/func.sh
 tarball=stage3-amd64-nomultilib-$STAGE3.tar.bz2
 
 ebegin "Mount Gentoo..."
-eend $(mount /dev/sda4 /mnt/gentoo >> $SCRIPTS/build.log)
+mount /dev/sda4 /mnt/gentoo >> $SCRIPTS/build.log
+end $?
 
 cd /mnt/gentoo
 
 ebegin "Download stage3..."
-eend $(wget http://distfiles.gentoo.org/releases/amd64/autobuilds/$STAGE3/$tarball >> $SCRIPTS/build.log)
+wget http://distfiles.gentoo.org/releases/amd64/autobuilds/$STAGE3/$tarball >> $SCRIPTS/build.log
+end $?
 
 ebegin "Extract stage3..."
-eend $(tar -xjpf $tarball >> $SCRIPTS/build.log)
+tar -xjpf $tarball >> $SCRIPTS/build.log
+end $?
 
 ebegin "Remove stage3 archive..."
-eend $(rm -f $tarball >> $SCRIPTS/build.log)
+rm -f $tarball >> $SCRIPTS/build.log
+end $?

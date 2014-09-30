@@ -3,7 +3,8 @@
 source $SCRIPTS/scripts/func.sh
 
 ebegin "Copy resolv.conf..."
-eend $(cp $SCRIPTS/scripts/kernel.config /mnt/gentoo/tmp/ >> $SCRIPTS/build.log)
+cp $SCRIPTS/scripts/kernel.config /mnt/gentoo/tmp/ >> $SCRIPTS/build.log
+end $?
 
 chroot /mnt/gentoo /bin/bash <<'EOF'
 emerge sys-kernel/gentoo-sources
