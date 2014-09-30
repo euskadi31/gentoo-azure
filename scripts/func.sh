@@ -1,9 +1,12 @@
 
-SYSTEM=$(uname -s)
+#SYSTEM=$(uname -s)
 
+GENTOO_FUNC=${PORTAGE_BIN_PATH:-/usr/lib/portage/bin}/isolated-functions.sh
+
+if [ ! -f $GENTOO_FUNC ]; then
 
 # Define function if Mac OS X
-if [[ "$SYSTEM" == 'Darwin' ]]; then
+#if [[ "$SYSTEM" == 'Darwin' ]]; then
 
     # colors def
     COLOR_END="\x1b[0m"
@@ -42,7 +45,7 @@ if [[ "$SYSTEM" == 'Darwin' ]]; then
     }
 
 else
-    source "${PORTAGE_BIN_PATH:-/usr/lib/portage/bin}/isolated-functions.sh"
+    source "${GENTOO_FUNC}"
 fi
 
 

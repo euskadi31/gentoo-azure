@@ -1,6 +1,9 @@
 #!/bin/bash
 
-cp -f $SCRIPTS/scripts/make.conf /mnt/gentoo/etc/portage/
+source $SCRIPTS/scripts/func.sh
+
+ebegin "Copy make.conf..."
+eend $(cp -f $SCRIPTS/scripts/make.conf /mnt/gentoo/etc/portage/ >> $SCRIPTS/build.log)
 
 chroot /mnt/gentoo /bin/bash <<'EOF'
 mkdir /usr/portage
