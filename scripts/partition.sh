@@ -9,24 +9,24 @@ sgdisk \
   -n 3:0:+1G   -t 3:8200 -c 3:"swap"       \
   -n 4:0:0     -t 4:8300 -c 4:"linux-root" \
   -p /dev/sda >> $SCRIPTS/build.log
-end $?
+eend $?
 
 ebegin "Sync partition..."
 sync >> $SCRIPTS/build.log
-end $?
+eend $?
 
 ebegin "Make ext2..."
 mkfs.ext2 /dev/sda1 >> $SCRIPTS/build.log
-end $?
+eend $?
 
 ebegin "Make ext4..."
 mkfs.ext4 /dev/sda4 >> $SCRIPTS/build.log
-end $?
+eend $?
 
 ebegin "Make swap..."
 mkswap /dev/sda3 >> $SCRIPTS/build.log
-end $?
+eend $?
 
 ebegin "Enable swap..."
 swapon /dev/sda3 >> $SCRIPTS/build.log
-end $?
+eend $?
