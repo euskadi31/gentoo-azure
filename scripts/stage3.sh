@@ -6,5 +6,5 @@ mount /dev/sda4 /mnt/gentoo
 
 cd /mnt/gentoo
 wget http://distfiles.gentoo.org/releases/amd64/autobuilds/$STAGE3/$tarball
-tar xvjpf $tarball
+tar -xjpf $tarball
 rm -f $tarball
